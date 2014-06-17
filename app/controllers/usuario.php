@@ -36,7 +36,8 @@ Class Usuario extends Controller {
 				die('Error en los datos');
 			} else {
 				Session::set('login', true);
-				Url::redirect('usuario');
+				Session::set('username', $usr);
+				Url::redirect('cuenta');
 			}
 		}
 
