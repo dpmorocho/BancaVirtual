@@ -15,8 +15,9 @@ Class Cuenta extends Controller {
 
 		$data['title'] ='Cuenta';
 		$data['cuenta'] = $this->_cuenta->saldo();
+		$data['row'] = $this->_cuenta->obtener_info();
 
-		$this->view->rendertemplate('header', $data);
+		$this->view->rendertemplate('headeruser', $data);
 		$this->view->render('cuenta/cuenta',$data);
 		$this->view->rendertemplate('footer', $data);
 
@@ -44,8 +45,10 @@ Class Cuenta extends Controller {
 
 		$data['title'] ='Debitar';
 		$data['row'] = $this->_cuenta->obtener_cuenta($id);
+		$data['cuenta'] = $this->_cuenta->saldo();
+		$data['row'] = $this->_cuenta->obtener_info();
 
-		$this->view->rendertemplate('header', $data);
+		$this->view->rendertemplate('headeruser', $data);
 		$this->view->render('cuenta/debito',$data, $error);
 		$this->view->rendertemplate('footer', $data);
 
@@ -82,9 +85,10 @@ Class Cuenta extends Controller {
 		}
 
 		$data['title'] ='Cambiar PIN';
-		$data['row'] = $this->_cuenta->obtener_cuenta($id);
+		$data['row'] = $this->_cuenta->obtener_info();
+		$data['cuenta'] = $this->_cuenta->saldo();
 
-		$this->view->rendertemplate('header', $data);
+		$this->view->rendertemplate('headeruser', $data);
 		$this->view->render('cuenta/pin',$data, $error);
 		$this->view->rendertemplate('footer', $data);
 

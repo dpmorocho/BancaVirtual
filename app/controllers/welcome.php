@@ -10,9 +10,9 @@ class Welcome extends Controller{
 
 		$data['title'] = 'Inicio';
 
-		//$this->view->rendertemplate('header',$data);
+		$this->view->rendertemplate('header',$data);
 		$this->view->render('welcome/welcome',$data);
-		//$this->view->rendertemplate('footer',$data);
+		$this->view->rendertemplate('footer',$data);
 	}
 
 }
